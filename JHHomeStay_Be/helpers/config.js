@@ -1,0 +1,1 @@
+// definite sample data for seedDB and constants in app

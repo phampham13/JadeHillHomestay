@@ -1,0 +1,24 @@
+version: '3'
+services:
+  nmcnpm-be:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - 8000:8000
+    volumes:
+      - ./:/app #host volumes
+      - /app/node_modules #anonymous volumes
+    depends_on:
+      - mongo-jadehills
+  mongo-jadehills:
+    image: mongo:latest
+    container_name: mongo-jadehills
+    restart: always
+    ports:
+      - 27017:27017
+    volumes:
+      - jadehills:/data/db #named volumes
+volumes:
+  jadehills:
+
